@@ -107,9 +107,8 @@ export const getServerSideProps = withIronSessionSsr(
     }
 
     // 作品情報取得
-    const body = { favoriteId };
-    const url = `${process.env.NEXT_PUBLIC_API_URL}/api/item/preTop`;
-    const response = await axios.post(url, body);
+    const url = `https://otpcnry8ni.execute-api.ap-northeast-1.amazonaws.com/preTop?genre=${favoriteId}`;
+    const response = await axios.get(url);
     const { newItems, genreItems } = await response.data;
     // const body = { favoriteId };
     // const url = 'http://localhost:3005/api/item/preTop';
