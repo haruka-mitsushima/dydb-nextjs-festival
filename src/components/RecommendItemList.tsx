@@ -4,7 +4,6 @@ import { Item } from 'types/item';
 import styles from 'styles/itemList.module.css';
 import { SessionUser } from 'pages/api/getUser';
 import Router from 'next/router';
-import axios from 'axios';
 import UseSWR from 'swr';
 
 const fetcher = (url: string, init: any) =>
@@ -23,13 +22,11 @@ export default function RecommendItemList({
   doLogout: boolean;
   userName: string;
 }) {
-  let tmpItems: [] = [];
   let logItems: Array<Item> = [];
   if (doLogout) {
     const id = 3;
-    const take = 10;
     const { data } = UseSWR<Array<Item>>(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/item/favorite/${id}/${take}`,
+      `https://otpcnry8ni.execute-api.ap-northeast-1.amazonaws.com/getItemByGenre?genre=${id}`,
       fetcher
     );
     if (data) {
@@ -74,45 +71,10 @@ export default function RecommendItemList({
       ) : (
         <div className={styles.p}>邦楽ロック</div>
       )}
-      {
-        user.isLoggedIn ? (
-          useChatbot ? (
-            <section className={styles.itemList}>
-              {items.map((item) => {
-                return (
-                  <Link
-                    key={item.id}
-                    href={`/items/${item.id}`}
-                    className={styles.item}
-                  >
-                    <Image
-                      src={item.itemImage}
-                      width={400}
-                      height={225}
-                      alt={item.artist}
-                      className={styles.itemImage}
-                      priority
-                    />
-                    <div className={styles.detail}>
-                      <div className={styles.artist}>
-                        {item.artist}
-                      </div>
-                      <div className={styles.fesName}>
-                        {item.fesName}
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </section>
-          ) : (
-            <div></div>
-          )
-        ) : (
-          //logItems.length ?
+      {user.isLoggedIn ? (
+        useChatbot ? (
           <section className={styles.itemList}>
-            {/* <div>{logItems[0].fesName}</div> */}
-            {logItems.map((item) => {
+            {items.map((item) => {
               return (
                 <Link
                   key={item.id}
@@ -137,34 +99,60 @@ export default function RecommendItemList({
               );
             })}
           </section>
+        ) : (
+          <div></div>
         )
-        // : (
-        //   <section className={styles.itemList}>
-        //     {items.map((item) => {
-        //       return (
-        //         <Link
-        //           key={item.id}
-        //           href={`/items/${item.id}`}
-        //           className={styles.item}
-        //         >
-        //           <Image
-        //             src={item.itemImage}
-        //             width={400}
-        //             height={225}
-        //             alt={item.artist}
-        //             className={styles.itemImage}
-        //             priority
-        //           />
-        //           <div className={styles.detail}>
-        //             <div className={styles.artist}>{item.artist}</div>
-        //             <div className={styles.fesName}>{item.fesName}</div>
-        //           </div>
-        //         </Link>
-        //       );
-        //     })}
-        //   </section>
-        // )
-      }
+      ) : logItems.length ? (
+        <section className={styles.itemList}>
+          {logItems.map((item) => {
+            return (
+              <Link
+                key={item.id}
+                href={`/items/${item.id}`}
+                className={styles.item}
+              >
+                <Image
+                  src={item.itemImage}
+                  width={400}
+                  height={225}
+                  alt={item.artist}
+                  className={styles.itemImage}
+                  priority
+                />
+                <div className={styles.detail}>
+                  <div className={styles.artist}>{item.artist}</div>
+                  <div className={styles.fesName}>{item.fesName}</div>
+                </div>
+              </Link>
+            );
+          })}
+        </section>
+      ) : (
+        <section className={styles.itemList}>
+          {items.map((item) => {
+            return (
+              <Link
+                key={item.id}
+                href={`/items/${item.id}`}
+                className={styles.item}
+              >
+                <Image
+                  src={item.itemImage}
+                  width={400}
+                  height={225}
+                  alt={item.artist}
+                  className={styles.itemImage}
+                  priority
+                />
+                <div className={styles.detail}>
+                  <div className={styles.artist}>{item.artist}</div>
+                  <div className={styles.fesName}>{item.fesName}</div>
+                </div>
+              </Link>
+            );
+          })}
+        </section>
+      )}
       {user.isLoggedIn ? (
         useChatbot ? (
           <div className={styles.btnWrapper}>
