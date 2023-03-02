@@ -81,8 +81,8 @@ export default function RecommendItemList({
               {items.map((item) => {
                 return (
                   <Link
-                    key={item.itemId}
-                    href={`/items/${item.itemId}`}
+                    key={item.id}
+                    href={`/items/${item.id}`}
                     className={styles.item}
                   >
                     <Image
@@ -115,8 +115,8 @@ export default function RecommendItemList({
             {logItems.map((item) => {
               return (
                 <Link
-                  key={item.itemId}
-                  href={`/items/${item.itemId}`}
+                  key={item.id}
+                  href={`/items/${item.id}`}
                   className={styles.item}
                 >
                   <Image
@@ -143,8 +143,8 @@ export default function RecommendItemList({
         //     {items.map((item) => {
         //       return (
         //         <Link
-        //           key={item.itemId}
-        //           href={`/items/${item.itemId}`}
+        //           key={item.id}
+        //           href={`/items/${item.id}`}
         //           className={styles.item}
         //         >
         //           <Image
