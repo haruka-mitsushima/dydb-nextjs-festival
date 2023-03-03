@@ -82,9 +82,8 @@ export const getServerSideProps = withIronSessionSsr(
     let useChatbot = false;
     // ログインしている場合、favoriteIdを取得する
     if (req.session.user) {
-      const body = { userId: req.session.user.userId };
-      const url = `${process.env.NEXT_PUBLIC_API_URL}/api/user`;
-      const response = await axios.post(url, body);
+      const url = `https://otpcnry8ni.execute-api.ap-northeast-1.amazonaws.com/getUser?id=uuid`;
+      const response = await axios.get(url);
       const data = await response.data;
       // const body = { userId: req.session.user.userId };
       // const url = 'http://localhost:3005/api/user';
@@ -95,8 +94,8 @@ export const getServerSideProps = withIronSessionSsr(
       // };
       // const response = await fetch(url, params);
       // const data = await response.json();
-      if (data?.favoriteId) {
-        favoriteId = data.favoriteId;
+      if (data?.favoriteGenre) {
+        favoriteId = data.favoriteGenre;
         useChatbot = true;
       }
       if (data?.userName) {
