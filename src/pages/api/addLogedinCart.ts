@@ -10,7 +10,7 @@ async function addLogedinCart(req: NextApiRequest, res: NextApiResponse) {
     if (!req.session.user) {
         return res.redirect('/error')
     }
-    const userId = req.session.user.mailAddress;
+    const userId = req.session.user.id;
     if (req.session.cart && req.session.cart.length !== 0) {
         // sessionのカートからcartId以外を取得
         const sessionCart = req.session.cart.map((item) => {
@@ -29,7 +29,7 @@ async function addLogedinCart(req: NextApiRequest, res: NextApiResponse) {
         const headers = {
             'Content-Type': 'application/json',
         }
-        const url = `https://r0tghxji3l.execute-api.ap-northeast-1.amazonaws.com/addLogedinCart?userId=${userId}`;
+        const url = `https://pb0al9er82.execute-api.ap-northeast-1.amazonaws.com/addLogedinCart?userId=${userId}`;
         // const params = {
         //     method: 'POST',
         //     headers: { 'Content-Type': 'application/json' },

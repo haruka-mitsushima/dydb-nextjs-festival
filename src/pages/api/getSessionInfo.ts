@@ -7,7 +7,7 @@ import { UserCart } from '../../types/user';
 export default withIronSessionApiRoute(getSessionRoute, ironOptions);
 
 export type SessionUser = {
-  mailAddress?: string;
+  id?: string;
   userCarts?: UserCart[];
   isLoggedIn: boolean;
 };
@@ -18,7 +18,7 @@ async function getSessionRoute(
 ) {
   if (req.session.user) {
     res.json({
-      mailAddress: req.session.user.mailAddress,
+      id: req.session.user.id,
       isLoggedIn: true,
     });
   } else {

@@ -5,12 +5,12 @@ import { Item } from 'types/item';
 declare module 'iron-session' {
   interface IronSessionData {
     user?: {
-      mailAddress: string;
+      id: string;
       userName: string;
     };
 
     cart?: {
-      cartId: number;
+      id: number;
       itemId: number;
       itemName: string;
       rentalPeriod: number;
