@@ -10,26 +10,32 @@ async function addLogedinCart(req: NextApiRequest, res: NextApiResponse) {
     if (!req.session.user) {
         return res.redirect('/error')
     }
-    const userId = req.session.user.userId;
+    const userId = req.session.user.mailAddress;
     if (req.session.cart && req.session.cart.length !== 0) {
         // sessionのカートからcartId以外を取得
         const sessionCart = req.session.cart.map((item) => {
             const data = {
                 itemId: item.itemId,
-                userId: userId,
-                rentalPeriod: item.rentalPeriod
+                itemName: item.itemName,
+                rentalPeriod: item.rentalPeriod,
+                price: item.price,
+                itemImage: item.itemImage,
             }
             return data;
         })
 
         const body = { sessionCart };
-        const url = `${process.env.NEXT_PUBLIC_API_URL}/api/cart/addLogedinCart`;
+        console.log(body)
+        const headers = {
+            'Content-Type': 'application/json',
+        }
+        const url = `https://r0tghxji3l.execute-api.ap-northeast-1.amazonaws.com/addLogedinCart?userId=${userId}`;
         // const params = {
         //     method: 'POST',
         //     headers: { 'Content-Type': 'application/json' },
         //     body: JSON.stringify(body),
         // };
-        await axios.post(url, body).then(() => { req.session.cart = []; })
+        await axios.post(url, JSON.stringify(body), { headers: headers }).then(() => { req.session.cart = []; })
 
         // // cartテーブルに追加
         // await prisma.cart.createMany({

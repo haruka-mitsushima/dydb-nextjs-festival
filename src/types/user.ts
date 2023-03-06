@@ -44,10 +44,10 @@ type RentalHistory = {
 type UserCart = {
   cartId: number;
   itemId: number;
-  userId?: number;
-  // 単位：日
+  itemName: string;
   rentalPeriod: number;
-  item: Item;
+  price: number;
+  itemImage: string;
 };
 
 

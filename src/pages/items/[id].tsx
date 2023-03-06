@@ -17,13 +17,13 @@ import axios from 'axios';
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export async function getStaticPaths() {
-  const url = `${process.env.NEXT_PUBLIC_API_URL}/api/item/getAllItems`;
+  const url = `https://r0tghxji3l.execute-api.ap-northeast-1.amazonaws.com/getAllItems`;
   const response = await axios.get(url);
   const data = await response.data;
-  const paths = data.map((item: { itemId: number }) => {
+  const paths = data.map((item: { id: number }) => {
     return {
       params: {
-        id: item.itemId.toString(),
+        id: item.id.toString(),
       },
     };
   });
@@ -39,7 +39,7 @@ export async function getStaticProps({
   params: { id: string };
 }) {
   const id = parseInt(params.id);
-  const url = `${process.env.NEXT_PUBLIC_API_URL}/api/item/getItemById/${id}`;
+  const url = `https://r0tghxji3l.execute-api.ap-northeast-1.amazonaws.com/getItemById?itemId=${id}`;
   const response = await axios.get(url);
   const item = await response.data;
   if (!item) {
@@ -124,7 +124,7 @@ export default function ItemDetail({ item }: { item: Item }) {
   let rentalHistory: RentalHistory[] = rental;
 
   let rentaledItems = rentalHistory?.filter((rentaledItem) => {
-    return rentaledItem.itemId === item.itemId;
+    return rentaledItem.id === item.id;
   });
 
   // 購入しているかしていないかのフラグ
@@ -161,9 +161,9 @@ export default function ItemDetail({ item }: { item: Item }) {
 
   let cartId: number;
   if (carts) {
-    // 商品が既に追加されている場合に同じitemIdがないか確かめる
+    // 商品が既に追加されている場合に同じidがないか確かめる
     const check = carts.filter((cart) => {
-      return cart.itemId === item.itemId;
+      return cart.id === item.id;
     });
     if (check.length) {
       cartflg = true;
@@ -199,13 +199,13 @@ export default function ItemDetail({ item }: { item: Item }) {
 
     // ユーザーidの取得
     const userId = data.userId;
-    const itemId = item.itemId;
+    const id = item.id;
 
     // ログイン後
     if (userId !== undefined) {
       await axios
         .get(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/cart/addCart/${userId}/${itemId}/${period}`
+          `${process.env.NEXT_PUBLIC_API_URL}/api/cart/addCart/${userId}/${id}/${period}`
         )
         .then((res) => {
           if (isChoiced === true) {
@@ -233,8 +233,9 @@ export default function ItemDetail({ item }: { item: Item }) {
         cartId: cartId,
         rentalPeriod: period,
         itemImage: item.itemImage,
-        itemId: item.itemId,
-        item: item,
+        id: item.id,
+        itemName: item.artist + item.fesName,
+        price: price,
       };
 
       const body = { cart: userCarts };
@@ -265,7 +266,7 @@ export default function ItemDetail({ item }: { item: Item }) {
       mutate('/api/getUser');
     } else {
       // ログイン前の場合
-      const body = { id: item.itemId, detail: true };
+      const body = { id: item.id, detail: true };
 
       await axios
         .post(`/api/itemDelete`, body)
@@ -421,12 +422,12 @@ export default function ItemDetail({ item }: { item: Item }) {
         <section className={styles.review}>
           <div className={styles.listWrpper}>
             <div className={styles.listInner}>
-              <Review itemId={item.itemId} />
+              <Review itemId={item.id} />
             </div>
             <div className={styles.tac}>
               <ReviewBtn
                 userId={userId}
-                id={item.itemId}
+                id={item.id}
                 isRentaled={isRentaled}
                 isLoggedIn={isLoggedIn}
               />

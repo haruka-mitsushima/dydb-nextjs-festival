@@ -5,13 +5,16 @@ import { ironOptions } from "../../../lib/ironOprion"
 export default withIronSessionApiRoute(
   async function loginRoute(req, res) {
     const body = { ...req.body };
-    const url = `${process.env.NEXT_PUBLIC_API_URL}/api/user/login`;
-    const response = await axios.post(url, body);
+    const headers = {
+      'Content-Type': 'application/json',
+    }
+    const url = `https://r0tghxji3l.execute-api.ap-northeast-1.amazonaws.com/login`;
+    const response = await axios.post(url, JSON.stringify(body), { headers: headers });
     const data = await response.data;
 
     if (data) {
       req.session.user = {
-        ...data
+        ...data[0]
       };
       await req.session.save();
       res.status(200).end();

@@ -82,7 +82,7 @@ export const getServerSideProps = withIronSessionSsr(
     let useChatbot = false;
     // ログインしている場合、favoriteIdを取得する
     if (req.session.user) {
-      const url = `https://otpcnry8ni.execute-api.ap-northeast-1.amazonaws.com/getUser?id=uuid`;
+      const url = `https://r0tghxji3l.execute-api.ap-northeast-1.amazonaws.com/getUser?id=maihama@maihama`;
       const response = await axios.get(url);
       const data = await response.data;
       // const body = { userId: req.session.user.userId };
@@ -101,12 +101,12 @@ export const getServerSideProps = withIronSessionSsr(
       if (data?.userName) {
         userName = data.userName;
       }
-      user.userId = req.session.user.userId;
+      user.mailAddress = req.session.user.mailAddress;
       user.isLoggedIn = true;
     }
 
     // 作品情報取得
-    const url = `https://otpcnry8ni.execute-api.ap-northeast-1.amazonaws.com/preTop?genre=${favoriteId}`;
+    const url = `https://r0tghxji3l.execute-api.ap-northeast-1.amazonaws.com/preTop?genre=${favoriteId}`;
     const response = await axios.get(url);
     const { newItems, genreItems } = await response.data;
     // const body = { favoriteId };
