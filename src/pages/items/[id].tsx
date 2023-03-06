@@ -17,7 +17,7 @@ import axios from 'axios';
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export async function getStaticPaths() {
-  const url = `https://r0tghxji3l.execute-api.ap-northeast-1.amazonaws.com/getAllItems`;
+  const url = `https://pb0al9er82.execute-api.ap-northeast-1.amazonaws.com/getAllItems`;
   const response = await axios.get(url);
   const data = await response.data;
   const paths = data.map((item: { id: number }) => {
@@ -38,8 +38,8 @@ export async function getStaticProps({
 }: {
   params: { id: string };
 }) {
-  const id = parseInt(params.id);
-  const url = `https://r0tghxji3l.execute-api.ap-northeast-1.amazonaws.com/getItemById?itemId=${id}`;
+  const id = params.id;
+  const url = `https://pb0al9er82.execute-api.ap-northeast-1.amazonaws.com/getItemById?itemId=${id}`;
   const response = await axios.get(url);
   const item = await response.data;
   if (!item) {
@@ -74,15 +74,15 @@ export default function ItemDetail({ item }: { item: Item }) {
 
   const { data } = UseSWR<SessionUser>('/api/getUser', fetcher);
 
-  let userId = 0;
-  if (data?.userId) {
-    userId = data.userId;
+  let userId = '0';
+  if (data?.id) {
+    userId = data.id;
   }
 
   useEffect(() => {
     axios
       .get(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/rentalHistory/selectRentalHistory/${userId}`
+        `https://pb0al9er82.execute-api.ap-northeast-1.amazonaws.com/selectRentalHistories?userId=${userId}`
       )
       .then((res) => setRental(res.data.rental));
     // fetch(
@@ -124,7 +124,7 @@ export default function ItemDetail({ item }: { item: Item }) {
   let rentalHistory: RentalHistory[] = rental;
 
   let rentaledItems = rentalHistory?.filter((rentaledItem) => {
-    return rentaledItem.id === item.id;
+    return rentaledItem.itemId === item.id;
   });
 
   // 購入しているかしていないかのフラグ
@@ -163,11 +163,11 @@ export default function ItemDetail({ item }: { item: Item }) {
   if (carts) {
     // 商品が既に追加されている場合に同じidがないか確かめる
     const check = carts.filter((cart) => {
-      return cart.id === item.id;
+      return cart.itemId === item.id;
     });
     if (check.length) {
       cartflg = true;
-      cartId = check[0].cartId;
+      cartId = check[0].id;
       mutate('/api/getUser');
     }
   }
@@ -196,16 +196,21 @@ export default function ItemDetail({ item }: { item: Item }) {
       setIsChoiced(true);
       return;
     }
-
     // ユーザーidの取得
-    const userId = data.userId;
-    const id = item.id;
-
+    const userId = data.id;
     // ログイン後
     if (userId !== undefined) {
+      const body = {
+        itemName: item.artist + ' ' + item.fesName,
+        rentalPeriod: period,
+        price: price,
+        itemImage: item.itemImage,
+        itemId: item.id,
+      };
       await axios
-        .get(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/cart/addCart/${userId}/${id}/${period}`
+        .post(
+          `https://pb0al9er82.execute-api.ap-northeast-1.amazonaws.com/addCart?userId=${userId}`,
+          body
         )
         .then((res) => {
           if (isChoiced === true) {
@@ -257,7 +262,7 @@ export default function ItemDetail({ item }: { item: Item }) {
 
   // 選択した商品をカートから削除
   const handleDelte = async (item: Item) => {
-    const id = data.userId;
+    const id = data.id;
     // ログイン後の場合
     if (id !== undefined) {
       await axios.get(

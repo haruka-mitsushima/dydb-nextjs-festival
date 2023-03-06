@@ -42,7 +42,7 @@ type RentalHistory = {
 
 // カート情報
 type UserCart = {
-  cartId: number;
+  id: number;
   itemId: number;
   itemName: string;
   rentalPeriod: number;

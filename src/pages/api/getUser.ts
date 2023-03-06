@@ -7,7 +7,7 @@ import axios from 'axios';
 export default withIronSessionApiRoute(getUserRoute, ironOptions);
 
 export type SessionUser = {
-  userId?: number;
+  id?: string;
   userName?: string;
   userCarts?: UserCart[];
   userRentalHistories?: RentalHistory[];
@@ -20,8 +20,8 @@ async function getUserRoute(
   res: NextApiResponse
 ) {
   if (req.session.user) {
-    const userId = req.session.user.userId;
-    const url = `${process.env.NEXT_PUBLIC_API_URL}/api/user/selectCart/${userId}`;
+    const userId = req.session.user.id;
+    const url = `https://pb0al9er82.execute-api.ap-northeast-1.amazonaws.com/selectCart?userId=${userId}`;
     const response = await axios.get(url);
     const result = await response.data;
     // const result = await prisma.user.findUnique({
@@ -37,9 +37,9 @@ async function getUserRoute(
     //   },
     // });
     res.json({
-      userId: userId,
+      id: userId,
       isLoggedIn: true,
-      userCarts: result?.cart,
+      userCarts: result,
     });
   } else {
     const sessionCart = req.session.cart;
