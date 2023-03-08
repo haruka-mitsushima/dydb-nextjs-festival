@@ -1,10 +1,10 @@
-import { Item } from './item';
-
 type SessionUserCart = {
-  cartId: number;
+  id: number;
   itemId: number;
   rentalPeriod: number;
-  item: Item;
+  price: number;
+  itemName: string;
+  itemImage: string;
 };
 
 export type { SessionUserCart }

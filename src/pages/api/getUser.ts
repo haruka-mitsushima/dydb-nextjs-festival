@@ -39,7 +39,7 @@ async function getUserRoute(
     res.json({
       id: userId,
       isLoggedIn: true,
-      userCarts: result,
+      userCarts: result.cart,
     });
   } else {
     const sessionCart = req.session.cart;

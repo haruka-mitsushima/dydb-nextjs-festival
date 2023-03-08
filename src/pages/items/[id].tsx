@@ -124,7 +124,7 @@ export default function ItemDetail({ item }: { item: Item }) {
   let rentalHistory: RentalHistory[] = rental;
 
   let rentaledItems = rentalHistory?.filter((rentaledItem) => {
-    return rentaledItem.itemId === item.id;
+    return rentaledItem.itemId === parseInt(item.id);
   });
 
   // 購入しているかしていないかのフラグ
@@ -163,7 +163,7 @@ export default function ItemDetail({ item }: { item: Item }) {
   if (carts) {
     // 商品が既に追加されている場合に同じidがないか確かめる
     const check = carts.filter((cart) => {
-      return cart.itemId === item.id;
+      return cart.itemId === parseInt(item.id);
     });
     if (check.length) {
       cartflg = true;
@@ -226,7 +226,6 @@ export default function ItemDetail({ item }: { item: Item }) {
         });
     } else {
       // ログイン前
-
       let cartId: number;
       if (!data.userCarts) {
         cartId = 1;
@@ -235,10 +234,10 @@ export default function ItemDetail({ item }: { item: Item }) {
       }
 
       let userCarts = {
-        cartId: cartId,
+        id: cartId,
         rentalPeriod: period,
         itemImage: item.itemImage,
-        id: item.id,
+        itemId: parseInt(item.id),
         itemName: item.artist + item.fesName,
         price: price,
       };

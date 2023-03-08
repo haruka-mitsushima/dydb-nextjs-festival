@@ -18,11 +18,11 @@ export default function DeleteBtn({
       // ログイン後の場合
       // deleteCartに飛ばす
       await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/cart/deleteCart/${cartId}`
+        `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/deleteCart?userId=${id}&cartId=${cartId}`
       );
       await axios
         .get(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/user/selectCart/${id}`
+          `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/selectCart?userId=${id}`
         )
         .then((res) => rebuild(res.data.cart));
     } else {
