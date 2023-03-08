@@ -21,7 +21,14 @@ export default function Home() {
       mailAddress,
       password,
     };
-    await axios.post('/api/login', body).then(async (res) => {
+    const params = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify(body),
+    };
+    await fetch('/api/login', params).then(async (res) => {
       if (res.status === 200) {
         await axios
           .get('/api/addLogedinCart')

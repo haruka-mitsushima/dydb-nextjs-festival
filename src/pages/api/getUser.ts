@@ -21,7 +21,7 @@ async function getUserRoute(
 ) {
   if (req.session.user) {
     const userId = req.session.user.id;
-    const url = `https://pb0al9er82.execute-api.ap-northeast-1.amazonaws.com/selectCart?userId=${userId}`;
+    const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/selectCart?userId=${userId}`;
     const response = await axios.get(url);
     const result = await response.data;
     // const result = await prisma.user.findUnique({

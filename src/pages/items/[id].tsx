@@ -17,7 +17,7 @@ import axios from 'axios';
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export async function getStaticPaths() {
-  const url = `https://pb0al9er82.execute-api.ap-northeast-1.amazonaws.com/getAllItems`;
+  const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/getAllItems`;
   const response = await axios.get(url);
   const data = await response.data;
   const paths = data.map((item: { id: number }) => {
@@ -39,7 +39,7 @@ export async function getStaticProps({
   params: { id: string };
 }) {
   const id = params.id;
-  const url = `https://pb0al9er82.execute-api.ap-northeast-1.amazonaws.com/getItemById?itemId=${id}`;
+  const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/getItemById?itemId=${id}`;
   const response = await axios.get(url);
   const item = await response.data;
   if (!item) {
@@ -82,7 +82,7 @@ export default function ItemDetail({ item }: { item: Item }) {
   useEffect(() => {
     axios
       .get(
-        `https://pb0al9er82.execute-api.ap-northeast-1.amazonaws.com/selectRentalHistories?userId=${userId}`
+        `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/selectRentalHistories?userId=${userId}`
       )
       .then((res) => setRental(res.data.rental));
     // fetch(
@@ -209,7 +209,7 @@ export default function ItemDetail({ item }: { item: Item }) {
       };
       await axios
         .post(
-          `https://pb0al9er82.execute-api.ap-northeast-1.amazonaws.com/addCart?userId=${userId}`,
+          `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/addCart?userId=${userId}`,
           body
         )
         .then((res) => {
@@ -266,7 +266,7 @@ export default function ItemDetail({ item }: { item: Item }) {
     // ログイン後の場合
     if (id !== undefined) {
       await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/cart/deleteCart/${cartId}`
+        `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/deleteCart?userId=${id}&cartId=${cartId}`
       );
       mutate('/api/getUser');
     } else {
