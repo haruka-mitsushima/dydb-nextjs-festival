@@ -19,10 +19,10 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 export const getServerSideProps: GetServerSideProps =
   withIronSessionSsr(async ({ req }) => {
     // ユーザーIDを渡すかitemIdを渡すかの分岐をしてから渡す
-    let userId = req.session.user?.userId;
+    let userId = req.session.user?.id;
     if (userId) {
       // ログイン後
-      const url = `${process.env.NEXT_PUBLIC_API_URL}/api/user/selectCart/${userId}`;
+      const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/selectCart?userId=${userId}`;
       const response = await axios.get(url);
       const res = await response.data;
       // const res = await SelectCart(userId);
@@ -81,7 +81,7 @@ export default function CartList({ cart }: { cart: UserCart[] }) {
     );
 
   // ユーザーのidを取得予定
-  const id = data.userId;
+  const id = data.id;
 
   let isCartflg = true;
   if (!cartItem?.length) {
@@ -92,11 +92,13 @@ export default function CartList({ cart }: { cart: UserCart[] }) {
   let sum: number[] = [];
   if (cartItem !== undefined) {
     cartItem.map((item) => {
-      if (item.rentalPeriod === 2) {
-        sum.push(item.item.twoDaysPrice);
-      } else if (item.rentalPeriod === 7) {
-        sum.push(item.item.sevenDaysPrice);
-      }
+      sum.push(item.price);
+      console.log(item.itemImage);
+      // if (item.rentalPeriod === 2) {
+      //   sum.push(item.item.twoDaysPrice);
+      // } else if (item.rentalPeriod === 7) {
+      //   sum.push(item.item.sevenDaysPrice);
+      // }
     });
   }
 
@@ -118,14 +120,14 @@ export default function CartList({ cart }: { cart: UserCart[] }) {
       <main className={styles.cart}>
         {cartItem?.map((item: UserCart) => {
           return (
-            <div className={styles.cartContent} key={item.itemId}>
+            <div className={styles.cartContent} key={item.id}>
               <div className={styles.cartMedia}>
                 <div className={styles.cartInner}>
                   <div className={styles.cartBodyWrapper}>
                     <figure className={styles.cartImgWrapper}>
                       <Image
                         className={styles.cartImg}
-                        src={item.item.itemImage}
+                        src={item.itemImage}
                         width={200}
                         height={112}
                         alt="商品の画像"
@@ -134,7 +136,7 @@ export default function CartList({ cart }: { cart: UserCart[] }) {
                     </figure>
                     <div className={styles.cartBody}>
                       <p className={styles.cartTitle}>
-                        {`${item.item.artist}  ${item.item.fesName}`}
+                        {item.itemName}
                       </p>
                       <p>
                         レンタル期間：
@@ -150,18 +152,10 @@ export default function CartList({ cart }: { cart: UserCart[] }) {
                   </div>
                   <div className={styles.cartPriceWrapper}>
                     <p>価格</p>
-                    {item.rentalPeriod === 2 ? (
-                      <p className={styles.cartPrice}>
-                        {item.item.twoDaysPrice}円
-                      </p>
-                    ) : (
-                      <p className={styles.cartPrice}>
-                        {item.item.sevenDaysPrice}円
-                      </p>
-                    )}
+                    <p className={styles.cartPrice}>{item.price}円</p>
                     <DeleteBtn
                       id={id}
-                      cartId={item.cartId}
+                      cartId={item.id}
                       itemId={item.itemId}
                       rebuild={(cart) => setCartItem(cart)}
                     />
