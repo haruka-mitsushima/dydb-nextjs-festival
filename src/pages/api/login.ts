@@ -8,7 +8,7 @@ export default withIronSessionApiRoute(
     const headers = {
       'Content-Type': 'application/json',
     }
-    const url = `https://pb0al9er82.execute-api.ap-northeast-1.amazonaws.com/login`;
+    const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/login`;
     const response = await axios.post(url, JSON.stringify(body), { headers: headers });
     const data = await response.data;
 
@@ -16,7 +16,7 @@ export default withIronSessionApiRoute(
       res.status(404).end();
     } else {
       req.session.user = {
-        ...data[0]
+        ...data
       };
       await req.session.save();
       res.status(200).end();

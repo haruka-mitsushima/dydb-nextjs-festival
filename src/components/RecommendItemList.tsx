@@ -26,7 +26,7 @@ export default function RecommendItemList({
   if (doLogout) {
     const id = 3;
     const { data } = UseSWR<Array<Item>>(
-      `https://pb0al9er82.execute-api.ap-northeast-1.amazonaws.com/getItemByGenre?genre=${id}`,
+      `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/getItemByGenre?genre=${id}`,
       fetcher
     );
     if (data) {
