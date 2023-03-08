@@ -12,14 +12,14 @@ export default withIronSessionApiRoute(
     const response = await axios.post(url, JSON.stringify(body), { headers: headers });
     const data = await response.data;
 
-    if (data) {
+    if (data.message === 'error') {
+      res.status(404).end();
+    } else {
       req.session.user = {
         ...data[0]
       };
       await req.session.save();
       res.status(200).end();
-    } else {
-      res.status(404).end();
     }
   },
   ironOptions,
