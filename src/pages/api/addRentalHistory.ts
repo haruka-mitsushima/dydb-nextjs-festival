@@ -12,10 +12,10 @@ async function getUserRoute(
 ) {
   if (req.session.user) {
     // セッションからユーザIDの取得
-    const userId = req.session.user.userId;
+    const userId = req.session.user.id;
 
     // ユーザ情報に紐づくカートの取得
-    const url = `${process.env.NEXT_PUBLIC_API_URL}/api/user/selectCart/${userId}`;
+    const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/selectCart?userId=${userId}`;
     const response = await axios.get(url);
     const result = await response.data;
     // const result = await prisma.user.findUnique({
@@ -36,33 +36,31 @@ async function getUserRoute(
 
     // レンタル履歴追加用のデータを作成
     const carts: UserCart[] = result.cart;
+    const time = new Date();
     const addItem = carts.map((item) => {
-      let tempItem = {
-        userId: userId,
+      return {
         itemId: item.itemId,
-        itemName: `${item.item.artist} ${item.item.fesName}`,
-        itemImage: item.item.itemImage,
-        price: 0,
+        itemName: item.itemName,
+        itemImage: item.itemImage,
+        price: item.price,
         rentalPeriod: item.rentalPeriod,
-        // payDate: time,
+        payDate: time,
       };
-      if (item.rentalPeriod === 2) {
-        tempItem.price = item.item.twoDaysPrice;
-      } else {
-        tempItem.price = item.item.sevenDaysPrice;
-      }
-      return tempItem;
     })
 
     // レンタル履歴テーブルとカートテーブルを同時更新
     const body = { addItem };
-    const path = `${process.env.NEXT_PUBLIC_API_URL}/api/payment/addRentalHistory/${userId}`;
+    console.log(body)
+    const headers = {
+      'Content-Type': 'application/json',
+    }
+    const path = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/addRentalHistory?userId=${userId}`;
     // const params = {
     //   method: 'POST',
     //   headers: { 'Content-Type': 'application/json' },
     //   body: JSON.stringify(body),
     // };
-    await axios.post(path, body).catch(() => res.redirect('/error'))
+    await axios.post(path, JSON.stringify(body), { headers: headers }).catch(() => res.redirect('/error'))
     // const tran = await prisma.$transaction([
     //   // レンタル履歴に追加
     //   prisma.rentalHistory.createMany({
