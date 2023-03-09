@@ -24,8 +24,8 @@ export const getServerSideProps: GetServerSideProps =
     };
     // ログインしている場合、カート情報を取得する
     if (req.session.user) {
-      user.userId = req.session.user.userId;
-      const url = `${process.env.NEXT_PUBLIC_API_URL}/api/user/selectCart/${user.userId}`;
+      user.id = req.session.user.id;
+      const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/selectCart?userId=${user.id}`;
       const response = await axios(url);
       const res = await response.data;
       // const res = await SelectCart(user.userId);
@@ -63,15 +63,7 @@ export default function Payment({
   }
   // 合計金額
   const sum = user.userCarts
-    ?.map((item) => {
-      let price = 0;
-      if (item.rentalPeriod === 2) {
-        price = item.item.twoDaysPrice;
-      } else {
-        price = item.item.sevenDaysPrice;
-      }
-      return price;
-    })
+    ?.map((item) => item.price)
     .reduce(
       (accumulator, currentValue) => accumulator + currentValue,
       0
@@ -103,24 +95,20 @@ export default function Payment({
               <div className={styles.itemWrapper}>
                 <div className={styles.ItemInfo}>
                   <Image
-                    src={item.item.itemImage}
+                    src={item.itemImage}
                     width={200}
                     height={112}
                     alt={'商品画像のURL'}
                     priority
                   />
                   <div className={styles.itemName}>
-                    <p>{`${item.item.artist}  ${item.item.fesName}`}</p>
+                    <p>{item.itemName}</p>
                     <p>レンタル期間：{item.rentalPeriod}泊</p>
                   </div>
                 </div>
                 <div className={styles.price}>
                   <p>価格</p>
-                  {item.rentalPeriod === 2 ? (
-                    <div>{item.item.twoDaysPrice}円</div>
-                  ) : (
-                    <div>{item.item.sevenDaysPrice}円</div>
-                  )}
+                  <div>{item.price}円</div>
                 </div>
               </div>
             </div>
