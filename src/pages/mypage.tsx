@@ -90,7 +90,7 @@ export default function Mypage({
       const PayDate = PayDay.getDate();
 
       let addRentalHistory = {
-        id: rentalHistory.rentalHistoryId,
+        id: rentalHistory.id,
         itemId: rentalHistory.itemId,
         itemImage: rentalHistory.itemImage,
         itemName: rentalHistory.itemName,
@@ -127,7 +127,7 @@ export default function Mypage({
                     if (rentalNows?.length) {
                       return rentalNows?.map(
                         (rentalNow: RentalHistory) => (
-                          <li key={rentalNow.rentalHistoryId}>
+                          <li key={rentalNow.id}>
                             <h2>{`${rentalNow.itemName}`}</h2>
                             <div className={styles.itemInfo}>
                               <Image
@@ -151,9 +151,7 @@ export default function Mypage({
                                   <button
                                     className={`${styles.btn} ${styles.pushdown}`}
                                     onClick={() =>
-                                      startPlayer(
-                                        rentalNow.rentalHistoryId
-                                      )
+                                      startPlayer(rentalNow.id)
                                     }
                                   >
                                     再生
@@ -236,8 +234,8 @@ export default function Mypage({
 
 export const getServerSideProps = withIronSessionSsr(
   async ({ req }) => {
-    const userId = req.session.user?.userId;
-    const url = `${process.env.NEXT_PUBLIC_API_URL}/api/rentalHistory/selectRentalHistory/${userId}`;
+    const userId = req.session.user?.id;
+    const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/selectRentalHistories?userId=${userId}`;
     const response = await fetch(url);
     const data = await response.json();
     const rentalHistories: RentalHistory[] = data.rental;
