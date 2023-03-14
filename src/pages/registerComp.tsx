@@ -13,7 +13,9 @@ export default function Completion() {
       <header className={styleHeader.header}>
         <div className={styleHeader.info}>
           <Image
-            src={'/images/logo.png'}
+            src={
+              'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//logo.png'
+            }
             width={232}
             height={70}
             alt={'タイトルロゴ'}
@@ -30,7 +32,9 @@ export default function Completion() {
           </p>
 
           <Link href={`/login`} className={styles.loginLink}>
-            <button className={styles.registerBtn}>ログイン画面へ</button>
+            <button className={styles.registerBtn}>
+              ログイン画面へ
+            </button>
           </Link>
         </div>
       </main>

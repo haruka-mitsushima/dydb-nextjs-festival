@@ -25,7 +25,9 @@ export default function Header({
         <div className={styles.info}>
           <Link href="/">
             <Image
-              src={'/images/logo.png'}
+              src={
+                'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//logo.png'
+              }
               width={232}
               height={70}
               alt={'タイトルロゴ'}
@@ -52,7 +54,9 @@ export default function Header({
                 <Link href="/">
                   <Image
                     className={styles.icon}
-                    src={'/images/icon-top.png'}
+                    src={
+                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-top.png'
+                    }
                     width={32}
                     height={32}
                     alt={'トップアイコン'}
@@ -64,7 +68,9 @@ export default function Header({
                 <Link href="/search?categories=&q=">
                   <Image
                     className={styles.icon}
-                    src={'/images/icon-search.png'}
+                    src={
+                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-search.png'
+                    }
                     width={32}
                     height={32}
                     alt={'検索アイコン'}
@@ -76,7 +82,9 @@ export default function Header({
                 <Link href="/cart">
                   <Image
                     className={styles.icon}
-                    src={'/images/icon-cart.png'}
+                    src={
+                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-cart.png'
+                    }
                     width={32}
                     height={32}
                     alt={'カートアイコン'}
@@ -90,7 +98,9 @@ export default function Header({
                     <Link href="/mypage">
                       <Image
                         className={styles.icon}
-                        src={'/images/icon-mypage.png'}
+                        src={
+                          'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-mypage.png'
+                        }
                         width={32}
                         height={32}
                         alt={'マイページアイコン'}
@@ -130,7 +140,9 @@ export default function Header({
               <li>
                 <Link href="/">
                   <Image
-                    src={'/images/icon-top.png'}
+                    src={
+                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-top.png'
+                    }
                     width={32}
                     height={32}
                     alt={'トップページのアイコン'}
@@ -144,7 +156,9 @@ export default function Header({
               <li>
                 <Link href="/search?categories=&q=">
                   <Image
-                    src={'/images/icon-search.png'}
+                    src={
+                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-search.png'
+                    }
                     width={32}
                     height={32}
                     alt={'検索のアイコン'}
@@ -156,7 +170,9 @@ export default function Header({
               <li>
                 <Link href="/cart">
                   <Image
-                    src={'/images/icon-cart.png'}
+                    src={
+                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-cart.png'
+                    }
                     width={32}
                     height={32}
                     alt={'カートのアイコン'}
@@ -170,7 +186,9 @@ export default function Header({
                   <li>
                     <Link href="/mypage">
                       <Image
-                        src={'/images/icon-mypage.png'}
+                        src={
+                          'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-mypage.png'
+                        }
                         width={32}
                         height={32}
                         alt={'マイページのアイコン'}
@@ -216,7 +234,9 @@ export default function Header({
         <div className={styles.info}>
           <Link href="/">
             <Image
-              src={'/images/logo.png'}
+              src={
+                'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//logo.png'
+              }
               width={232}
               height={70}
               alt={'タイトルロゴ'}
@@ -238,7 +258,9 @@ export default function Header({
               <li>
                 <Link href="/">
                   <Image
-                    src={'/images/icon-top.png'}
+                    src={
+                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-top.png'
+                    }
                     width={32}
                     height={32}
                     alt={'トップページのアイコン'}
