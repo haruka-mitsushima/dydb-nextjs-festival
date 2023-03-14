@@ -1,5 +1,3 @@
-import { Item } from './item';
-
 // ユーザ情報
 type User = {
   id: number;
