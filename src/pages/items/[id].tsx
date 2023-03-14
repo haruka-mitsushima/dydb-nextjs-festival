@@ -9,8 +9,6 @@ import Header from '../../components/Header';
 import Head from 'next/head';
 import Player from '../../components/Player';
 import loadStyles from 'styles/loading.module.css';
-import Review from '../../components/Review';
-import ReviewBtn from 'components/ReviewBtn';
 import Countdown from '../../components/Countdown';
 import axios from 'axios';
 
@@ -423,21 +421,6 @@ export default function ItemDetail({ item }: { item: Item }) {
             startPlayer={() => mutate('/api/getUser')}
           />
         )}
-        <section className={styles.review}>
-          <div className={styles.listWrpper}>
-            <div className={styles.listInner}>
-              <Review itemId={item.id} />
-            </div>
-            <div className={styles.tac}>
-              <ReviewBtn
-                userId={userId}
-                id={item.id}
-                isRentaled={isRentaled}
-                isLoggedIn={isLoggedIn}
-              />
-            </div>
-          </div>
-        </section>
       </main>
     </>
   );
