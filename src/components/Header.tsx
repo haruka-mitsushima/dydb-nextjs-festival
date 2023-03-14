@@ -26,7 +26,7 @@ export default function Header({
           <Link href="/">
             <Image
               src={
-                'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//logo.png'
+                'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com/logo.png'
               }
               width={232}
               height={70}
@@ -55,7 +55,7 @@ export default function Header({
                   <Image
                     className={styles.icon}
                     src={
-                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-top.png'
+                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com/icon-top.png'
                     }
                     width={32}
                     height={32}
@@ -69,7 +69,7 @@ export default function Header({
                   <Image
                     className={styles.icon}
                     src={
-                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-search.png'
+                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com/icon-search.png'
                     }
                     width={32}
                     height={32}
@@ -83,7 +83,7 @@ export default function Header({
                   <Image
                     className={styles.icon}
                     src={
-                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-cart.png'
+                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com/icon-cart.png'
                     }
                     width={32}
                     height={32}
@@ -99,7 +99,7 @@ export default function Header({
                       <Image
                         className={styles.icon}
                         src={
-                          'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-mypage.png'
+                          'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com/icon-mypage.png'
                         }
                         width={32}
                         height={32}
@@ -141,7 +141,7 @@ export default function Header({
                 <Link href="/">
                   <Image
                     src={
-                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-top.png'
+                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com/icon-top.png'
                     }
                     width={32}
                     height={32}
@@ -157,7 +157,7 @@ export default function Header({
                 <Link href="/search?categories=&q=">
                   <Image
                     src={
-                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-search.png'
+                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com/icon-search.png'
                     }
                     width={32}
                     height={32}
@@ -171,7 +171,7 @@ export default function Header({
                 <Link href="/cart">
                   <Image
                     src={
-                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-cart.png'
+                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com/icon-cart.png'
                     }
                     width={32}
                     height={32}
@@ -187,7 +187,7 @@ export default function Header({
                     <Link href="/mypage">
                       <Image
                         src={
-                          'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-mypage.png'
+                          'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com/icon-mypage.png'
                         }
                         width={32}
                         height={32}
@@ -235,7 +235,7 @@ export default function Header({
           <Link href="/">
             <Image
               src={
-                'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//logo.png'
+                'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com/logo.png'
               }
               width={232}
               height={70}
@@ -259,7 +259,7 @@ export default function Header({
                 <Link href="/">
                   <Image
                     src={
-                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//icon-top.png'
+                      'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com/icon-top.png'
                     }
                     width={32}
                     height={32}

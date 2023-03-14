@@ -257,7 +257,7 @@ export default function LoginScreen() {
         <div className={styleHeader.info}>
           <Image
             src={
-              'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//logo.png'
+              'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com/logo.png'
             }
             width={232}
             height={70}

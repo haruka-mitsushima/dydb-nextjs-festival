@@ -56,7 +56,7 @@ export default function Home() {
           <h1>
             <Image
               src={
-                'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//logo.png'
+                'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com/logo.png'
               }
               width={190}
               height={60}
