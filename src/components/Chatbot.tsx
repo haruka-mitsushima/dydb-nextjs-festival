@@ -724,7 +724,7 @@ export default function Chatbot({
                           key={`icon${obj.chatbotId}`}
                           className={styles.icon}
                           src={
-                            'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//chatIcon.jpeg'
+                            'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com/chatIcon.jpeg'
                           }
                           width={30}
                           height={30}
