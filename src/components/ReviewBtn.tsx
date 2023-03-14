@@ -11,8 +11,8 @@ export default function Review({
   isRentaled,
   isLoggedIn,
 }: {
-  userId: number;
-  id: number;
+  userId: string;
+  id: string;
   isRentaled: boolean;
   isLoggedIn: boolean | undefined;
 }) {

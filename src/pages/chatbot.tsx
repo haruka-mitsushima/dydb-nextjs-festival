@@ -74,7 +74,7 @@ export const getServerSideProps = withIronSessionSsr(
     let userName = 'guest';
     // ログインしている場合、userNameを取得する
     if (req.session.user) {
-      const url = `${process.env.NEXT_PUBLIC_API_URL}/api/user/getUserName/${req.session.user.userId}`;
+      const url = `${process.env.NEXT_PUBLIC_API_URL}/api/user/getUserName/${req.session.user.id}`;
       const response = await axios.get(url);
       const data = await response.data;
       if (data) {

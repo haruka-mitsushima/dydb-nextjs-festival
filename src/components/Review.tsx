@@ -18,7 +18,7 @@ type Review = {
   user: User;
 };
 
-export default function Review({ itemId }: { itemId: number }) {
+export default function Review({ itemId }: { itemId: string }) {
   const [orderBy, setOrderBy] = useState('reviewId');
   const [order, setOrder] = useState('desc');
   const [average, setAverage] = useState({

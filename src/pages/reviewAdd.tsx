@@ -59,8 +59,8 @@ export default function Review({ item }: { item: Item }) {
     const nowPostTime = `${postTimeYear}/${postTimeMonth}/${postTimeDate} ${postTimeHours}:${postTimeMinutes}`;
 
     const body = {
-      itemId: item.itemId,
-      userId: data.userId,
+      itemId: item.id,
+      userId: data.id,
       postTime: nowPostTime,
       reviewTitle: formReviewTitle,
       reviewText: formReviewText,
@@ -74,7 +74,7 @@ export default function Review({ item }: { item: Item }) {
         body
       )
       .then(() => {
-        router.push(`/items/${item.itemId}`); //e.preventDefault()を行なった為、クライアント側の遷移処理をここで行う
+        router.push(`/items/${item.id}`); //e.preventDefault()を行なった為、クライアント側の遷移処理をここで行う
       });
   };
 
