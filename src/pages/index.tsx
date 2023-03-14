@@ -82,18 +82,9 @@ export const getServerSideProps = withIronSessionSsr(
     let useChatbot = false;
     // ログインしている場合、favoriteIdを取得する
     if (req.session.user) {
-      const url = `${process.env.NEXT_PUBLIC_API_URL}/getUser?id=maihama@maihama`;
+      const url = `${process.env.NEXT_PUBLIC_API_URL}/getUser?id=${req.session.user.id}`;
       const response = await axios.get(url);
       const data = await response.data;
-      // const body = { userId: req.session.user.userId };
-      // const url = 'http://localhost:3005/api/user';
-      // const params = {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(body),
-      // };
-      // const response = await fetch(url, params);
-      // const data = await response.json();
       if (data?.favoriteGenre) {
         favoriteId = data.favoriteGenre;
         useChatbot = true;
@@ -109,15 +100,6 @@ export const getServerSideProps = withIronSessionSsr(
     const url = `${process.env.NEXT_PUBLIC_API_URL}/preTop?genre=${favoriteId}`;
     const response = await axios.get(url);
     const { newItems, genreItems } = await response.data;
-    // const body = { favoriteId };
-    // const url = 'http://localhost:3005/api/item/preTop';
-    // const params = {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(body),
-    // };
-    // const response = await fetch(url, params);
-    // const { newItems, genreItems } = await response.json();
 
     return {
       props: {

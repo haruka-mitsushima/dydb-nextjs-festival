@@ -106,7 +106,7 @@ export default function LoginScreen() {
     const error: Errors = validate(formValues);
     // 登録済みのメールアドレスを確認する
     const res = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/user/mailConditions`,
+      `${process.env.NEXT_PUBLIC_API_URL}/mailCondition`,
       {
         mailAddress: formValues.mailAddress,
       }
@@ -148,15 +148,15 @@ export default function LoginScreen() {
       error.passwordTest === ''
     ) {
       // 登録内容を登録する
-      const url = `${process.env.NEXT_PUBLIC_API_URL}/api/user/signup`;
+      const url = `${process.env.NEXT_PUBLIC_API_URL}/signup`;
       const data = {
         //Jsonデータに保存する内容を記載
         userName: formValues.userName,
         zipcode: formValues.zipcode,
-        prefecture: formValues.prefectures,
+        prefectures: formValues.prefectures,
         city: formValues.city,
         houseNumber: formValues.houseNumber,
-        building: formValues.buildingName,
+        buildingName: formValues.buildingName,
         familyName: formValues.familyName,
         firstName: formValues.firstName,
         familyNameKana: formValues.familyNameKana,
