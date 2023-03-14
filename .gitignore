@@ -38,3 +38,5 @@ next-env.d.ts
 # .history フォルダは要らない
 .history/
 
+# デプロイ時にエラーが出るため
+package-lock.json
