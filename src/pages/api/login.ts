@@ -8,7 +8,7 @@ export default withIronSessionApiRoute(
     const headers = {
       'Content-Type': 'application/json',
     }
-    const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/login`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/login`;
     const response = await axios.post(url, JSON.stringify(body), { headers: headers });
     const data = await response.data;
 

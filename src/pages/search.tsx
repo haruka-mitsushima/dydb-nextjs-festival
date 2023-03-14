@@ -199,27 +199,27 @@ export async function getServerSideProps({
 
   if (keyword.length === 0 && genre === '0') {
     const res = await axios.get(
-      `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/getNewItems`
+      `${process.env.NEXT_PUBLIC_API_URL}/getNewItems`
     );
     const selectNew = await res.data;
     newItems = selectNew;
   } else if (keyword.length === 0 && genre !== '0') {
     const body = { genre, orderBy, order, page, take };
-    const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/search`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/search`;
     const response = axios.post(url, body);
     const data = await (await response).data;
     searchItems = data.searchItems;
     count = data.count;
   } else if (keyword.length !== 0 && genre === '0') {
     const body = { keyword, orderBy, order, page, take };
-    const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/wordSearch`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/wordSearch`;
     const response = axios.post(url, body);
     const data = await (await response).data;
     searchItems = data.searchItems;
     count = data.count;
   } else {
     const body = { keyword, genre, orderBy, order, page, take };
-    const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/cloudSearch`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/cloudSearch`;
     const response = axios.post(url, body);
     const data = await (await response).data;
     searchItems = data.searchItems;

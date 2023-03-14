@@ -28,7 +28,7 @@ async function addLogedinCart(req: NextApiRequest, res: NextApiResponse) {
         const headers = {
             'Content-Type': 'application/json',
         }
-        const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/addLogedinCart?userId=${userId}`;
+        const url = `${process.env.NEXT_PUBLIC_API_URL}/addLogedinCart?userId=${userId}`;
         // const params = {
         //     method: 'POST',
         //     headers: { 'Content-Type': 'application/json' },

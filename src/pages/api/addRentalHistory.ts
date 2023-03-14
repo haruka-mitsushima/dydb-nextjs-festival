@@ -15,7 +15,7 @@ async function getUserRoute(
     const userId = req.session.user.id;
 
     // ユーザ情報に紐づくカートの取得
-    const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/selectCart?userId=${userId}`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/selectCart?userId=${userId}`;
     const response = await axios.get(url);
     const result = await response.data;
     // const result = await prisma.user.findUnique({
@@ -54,7 +54,7 @@ async function getUserRoute(
     const headers = {
       'Content-Type': 'application/json',
     }
-    const path = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/addRentalHistory?userId=${userId}`;
+    const path = `${process.env.NEXT_PUBLIC_API_URL}/addRentalHistory?userId=${userId}`;
     // const params = {
     //   method: 'POST',
     //   headers: { 'Content-Type': 'application/json' },
