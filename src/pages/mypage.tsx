@@ -235,7 +235,7 @@ export default function Mypage({
 export const getServerSideProps = withIronSessionSsr(
   async ({ req }) => {
     const userId = req.session.user?.id;
-    const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/selectRentalHistories?userId=${userId}`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/selectRentalHistories?userId=${userId}`;
     const response = await fetch(url);
     const data = await response.json();
     const rentalHistories: RentalHistory[] = data.rental;
