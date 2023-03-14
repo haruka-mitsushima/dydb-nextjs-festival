@@ -93,7 +93,7 @@ export default function ReviewEdit({
     //   body: JSON.stringify(body),
     // };
     await axios.post(url, body).then(() => {
-      router.push(`/items/${reviewItem.item.itemId}`);
+      router.push(`/items/${reviewItem.item.id}`);
     });
   };
 

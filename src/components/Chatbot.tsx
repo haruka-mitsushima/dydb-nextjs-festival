@@ -277,7 +277,7 @@ export default function Chatbot({
     e.preventDefault();
     setButton(false);
     await axios.patch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/user/updateUser/${data.userId}/${genre}`
+      `${process.env.NEXT_PUBLIC_API_URL}/api/user/updateUser/${data.id}/${genre}`
     );
   };
   const route = () => {
@@ -667,12 +667,12 @@ export default function Chatbot({
                       {items.map((item) => {
                         return (
                           <Link
-                            key={`itemLink${item.itemId}`}
-                            href={`/items/${item.itemId}`}
+                            key={`itemLink${item.id}`}
+                            href={`/items/${item.id}`}
                             className={styles.item}
                           >
                             <Image
-                              key={`itemImage${item.itemId}`}
+                              key={`itemImage${item.id}`}
                               src={item.itemImage}
                               width={400}
                               height={225}

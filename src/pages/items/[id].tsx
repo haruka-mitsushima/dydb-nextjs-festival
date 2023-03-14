@@ -423,7 +423,7 @@ export default function ItemDetail({ item }: { item: Item }) {
             startPlayer={() => mutate('/api/getUser')}
           />
         )}
-        {/* <section className={styles.review}>
+        <section className={styles.review}>
           <div className={styles.listWrpper}>
             <div className={styles.listInner}>
               <Review itemId={item.id} />
@@ -437,7 +437,7 @@ export default function ItemDetail({ item }: { item: Item }) {
               />
             </div>
           </div>
-        </section> */}
+        </section>
       </main>
     </>
   );
