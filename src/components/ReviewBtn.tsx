@@ -22,21 +22,6 @@ export default function Review({
     fetcher
   );
 
-  if (!data)
-    return (
-      <div className={loadStyles.loadingArea}>
-        <div className={loadStyles.bound}>
-          <span>L</span>
-          <span>o</span>
-          <span>a</span>
-          <span>d</span>
-          <span>i</span>
-          <span>g</span>
-          <span>...</span>
-        </div>
-      </div>
-    );
-
   //レビューされた商品の場合はフラグを変更
   let isReviewed = false;
   if (data.isReviewed) {
