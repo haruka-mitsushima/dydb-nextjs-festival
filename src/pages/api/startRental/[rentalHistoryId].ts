@@ -19,10 +19,10 @@ async function startRentalRoute(
 			return res.json({ result: false });
 		}
 		const id = Number(rentalHistoryId);
-		const userId = req.session.user.userId;
+		const userId = req.session.user.id;
 
 		// ログインユーザのレンタル履歴情報を取得
-		const url = `${process.env.NEXT_PUBLIC_API_URL}/api/rentalHistory/selectRentalHistory/${userId}`;
+		const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/selectRentalHistories?userId=${userId}`;
 		const response = await axios.get(url);
 		const data = await response.data;
 		const rentalHistory: RentalHistory[] = data.rental;
@@ -34,7 +34,7 @@ async function startRentalRoute(
 
 		// 対象作品の取得
 		const rentalItem = rentalHistory.find(
-			(item) => item.rentalHistoryId === id
+			(item) => item.id === id
 		);
 
 		// 対象作品が見つからない場合はエラーを返却
@@ -59,12 +59,12 @@ async function startRentalRoute(
 			rentalEnd: endDate
 		}
 		// データベースを更新する
-		const path = `${process.env.NEXT_PUBLIC_API_URL}/api/rentalHistory/updateRentalHistory/${rentalItem.rentalHistoryId}`;
+		const path = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/updateRentalHistory?userId=${userId}&rentalHistoryId=${rentalItem.id}`;
 		// const params = {
 		// 	method: 'PATCH',
 		// 	headers: { 'Content-Type': 'application/json' },
 		// 	body: JSON.stringify(updateItem),
 		// };
-		await axios.patch(path, updateItem).then(() => res.json({ result: true }));
+		await axios.post(path, updateItem).then(() => res.json({ result: true }));
 	}
 }

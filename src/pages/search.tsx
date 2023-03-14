@@ -102,8 +102,8 @@ export default function Search({
               <section className={styles.itemList}>
                 {newItems.map((item) => {
                   return (
-                    <div key={item.itemId} className={styles.item}>
-                      <Link href={`/items/${item.itemId}`}>
+                    <div key={item.id} className={styles.item}>
+                      <Link href={`/items/${item.id}`}>
                         <Image
                           src={item.itemImage}
                           width={400}
@@ -148,8 +148,8 @@ export default function Search({
               <section className={styles.itemList}>
                 {items.map((item) => {
                   return (
-                    <div key={item.itemId} className={styles.item}>
-                      <Link href={`/items/${item.itemId}`}>
+                    <div key={item.id} className={styles.item}>
+                      <Link href={`/items/${item.id}`}>
                         <Image
                           src={item.itemImage}
                           width={400}
@@ -188,50 +188,48 @@ export async function getServerSideProps({
   query,
 }: GetServerSidePropsContext) {
   let newItems = null;
-  let result = null;
-  const keyword = query.q;
-  const genre = query.page ? Number(query.categories) : 0;
+  let searchItems = [];
+  const keyword = query.q ? query.q : '';
+  const genre = query.page ? query.categories : '0';
   const page = query.page ? Number(query.page) : 1;
-  const orderBy = query.orderBy ? query.orderBy : 'itemId';
+  const orderBy = query.orderBy ? query.orderBy : 'id';
   const order = query.order ? query.order : 'desc';
   const take = PAGE_SIZE;
 
-  if (keyword?.length === 0 && genre === 0) {
+  if (keyword.length === 0 && genre === '0') {
     const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/item/new`
+      `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/getNewItems`
     );
     const selectNew = await res.data;
-    // const url = 'http://localhost:3005/api/item/new';
-    // const response = await fetch(url);
-    // const selectNew = await response.json();
-    // const selectNew = await selectNewItem(10);
     newItems = selectNew;
-  }
-
-  const body = { keyword, genre, orderBy, order, page, take };
-  const url = `${process.env.NEXT_PUBLIC_API_URL}/api/search`;
-  const response = axios.post(url, body);
-  const data = await (await response).data;
-  // // const params = {
-  // //   method: 'POST',
-  // //   headers: { 'Content-Type': 'application/json' },
-  // //   body: JSON.stringify(body),
-  // // };
-  // const response = await fetch(url, params);
-  // cosnt data = await response.json();
-
-  if (!data) {
-    return;
+  } else if (keyword.length === 0 && genre !== '0') {
+    const body = { genre, orderBy, order, page, take };
+    const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/search`;
+    const response = axios.post(url, body);
+    const data = await (await response).data;
+    searchItems = data;
+  } else if (keyword.length !== 0 && genre === '0') {
+    const body = { keyword, orderBy, order, page, take };
+    const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/wordSearch`;
+    const response = axios.post(url, body);
+    const data = await (await response).data;
+    searchItems = data;
+  } else {
+    const body = { keyword, genre, orderBy, order, page, take };
+    const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/cloudSearch`;
+    const response = axios.post(url, body);
+    const data = await (await response).data;
+    searchItems = data;
   }
 
   return {
     props: {
-      items: data.items,
+      items: searchItems,
       newItems: newItems,
       keyword: keyword,
       genre: genre,
       page: page,
-      totalCount: data.count,
+      totalCount: searchItems.length,
       orderBy: orderBy,
       order: order,
     },

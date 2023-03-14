@@ -14,7 +14,7 @@ export default function SearchForm() {
         categories: genre,
         q: data,
         page: 1,
-        orderBy: 'itemId',
+        orderBy: 'id',
         order: 'desc',
       },
     });
