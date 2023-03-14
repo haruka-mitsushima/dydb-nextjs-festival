@@ -55,7 +55,9 @@ export default function Home() {
         <section className={styles.formWrapper}>
           <h1>
             <Image
-              src={'/images/logo.png'}
+              src={
+                'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//logo.png'
+              }
               width={190}
               height={60}
               alt={'タイトルロゴ'}

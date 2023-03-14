@@ -82,7 +82,7 @@
 }
 
 .btn::after {
-  content: url(/images/再生ボタン.png);
+  content: url(https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//再生ボタン.png);
   position: absolute;
   width: 1.5rem;
   height: 1.5rem;

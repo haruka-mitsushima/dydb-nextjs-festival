@@ -59,13 +59,13 @@ export default function RecommendItemList({
           <div className={styles.p}>{userName}さんへのおすすめ</div>
         ) : (
           <div className={styles.btnWrapper}>
-            <button
+            {/* <button
               className={styles.chatbotButtonBefore}
               onClick={route}
             >
               やってみよう！ <br className={styles.br} />{' '}
               チャットボット
-            </button>
+            </button> */}
           </div>
         )
       ) : (

@@ -723,7 +723,9 @@ export default function Chatbot({
                         <Image
                           key={`icon${obj.chatbotId}`}
                           className={styles.icon}
-                          src={'/images/chatIcon.jpeg'}
+                          src={
+                            'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//chatIcon.jpeg'
+                          }
                           width={30}
                           height={30}
                           alt={'アイコン'}

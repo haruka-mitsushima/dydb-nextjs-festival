@@ -256,7 +256,9 @@ export default function LoginScreen() {
       <header className={styleHeader.header}>
         <div className={styleHeader.info}>
           <Image
-            src={'/images/logo.png'}
+            src={
+              'https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//logo.png'
+            }
             width={232}
             height={70}
             alt={'タイトルロゴ'}

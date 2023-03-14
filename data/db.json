@@ -5,16 +5,12 @@
       "fesName": "TokyoIdolFestival 2022",
       "artist": "=LOVE",
       "itemDetail": "「TIF」6年目で2日目トリ 貫禄の8曲パフォーマンス",
-      "itemImage": "/images/fes-image/fes-image01.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image01.jpg",
       "releaseDate": "2022-11-24",
       "playTime": 60,
       "twoDaysPrice": 200,
       "sevenDaysPrice": 200,
-      "categories": [
-        1,
-        2,
-        7
-      ],
+      "categories": [1, 2, 7],
       "keywords": [
         "イコールラブ",
         "イコラブ",
@@ -28,17 +24,12 @@
       "fesName": "TokyoIdolFestival 2022",
       "artist": "≠ME",
       "itemDetail": "最新曲「す、好きじゃない！」を熱唱",
-      "itemImage": "/images/fes-image/fes-image02.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image02.jpg",
       "releaseDate": "2022-11-24",
       "playTime": 60,
       "twoDaysPrice": 400,
       "sevenDaysPrice": 200,
-      "categories": [
-        1,
-        2,
-        5,
-        7
-      ],
+      "categories": [1, 2, 5, 7],
       "keywords": [
         "ノットイコールミー",
         "ノイミー",
@@ -52,58 +43,38 @@
       "fesName": "JAPAN JAM2022",
       "artist": "sumika",
       "itemDetail": "sumikaです",
-      "itemImage": "/images/fes-image/fes-image03.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image03.jpg",
       "releaseDate": "2022-11-24",
       "playTime": 60,
       "twoDaysPrice": 100,
       "sevenDaysPrice": 200,
-      "categories": [
-        1,
-        3,
-        6
-      ],
-      "keywords": [
-        "スミカ",
-        "すみか",
-        "ジャパンジャム"
-      ]
+      "categories": [1, 3, 6],
+      "keywords": ["スミカ", "すみか", "ジャパンジャム"]
     },
     {
       "id": 4,
       "fesName": "JAPAN JAM2022",
       "artist": "ポルカドットスティングレイ",
       "itemDetail": "ポルカです",
-      "itemImage": "/images/fes-image/fes-image04.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image04.jpg",
       "releaseDate": "2022-11-24",
       "playTime": 60,
       "twoDaysPrice": 1000,
       "sevenDaysPrice": 200,
-      "categories": [
-        1,
-        3,
-        6,
-        7
-      ],
-      "keywords": [
-        "ぽるかどっとすてぃんぐれい",
-        "ジャパンジャム"
-      ]
+      "categories": [1, 3, 6, 7],
+      "keywords": ["ぽるかどっとすてぃんぐれい", "ジャパンジャム"]
     },
     {
       "id": 5,
       "fesName": "TokyoIdolFestival 2022",
       "artist": "≒JOY",
       "itemDetail": "ニアジョイです",
-      "itemImage": "/images/fes-image/fes-image05.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image05.jpg",
       "releaseDate": "2022-11-24",
       "playTime": 60,
       "twoDaysPrice": 200,
       "sevenDaysPrice": 200,
-      "categories": [
-        1,
-        2,
-        7
-      ],
+      "categories": [1, 2, 7],
       "keywords": [
         "にありーいこーるじょい",
         "にあじょい",
@@ -116,67 +87,46 @@
       "fesName": "TokyoIdolFestival 2022",
       "artist": "FRUITS ZIPPER",
       "itemDetail": "FRUITS ZIPPERです",
-      "itemImage": "/images/fes-image/fes-image06.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image06.jpg",
       "releaseDate": "2022-11-24",
       "playTime": 60,
       "twoDaysPrice": 10,
       "sevenDaysPrice": 200,
-      "keywords": [
-        "フルーツジッパー",
-        "ふるーつじっぱー"
-      ],
-      "categories": [
-        1,
-        2,
-        7
-      ]
+      "keywords": ["フルーツジッパー", "ふるーつじっぱー"],
+      "categories": [1, 2, 7]
     },
     {
       "id": 7,
       "fesName": "SUMMER SONIC 2022 TOKYO",
       "artist": "THE 1975",
       "itemDetail": "イギリス出身のバンド。サマソニのヘッドライナーとして完璧なステージを披露。",
-      "itemImage": "/images/fes-image/fes-image07.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image07.jpg",
       "releaseDate": "2022-11-24",
       "playTime": 60,
       "twoDaysPrice": 150,
       "sevenDaysPrice": 20,
-      "keywords": [
-        "イギリス",
-        "ナインティ―セブンティーファイブ"
-      ],
-      "categories": [
-        4,
-        6
-      ]
+      "keywords": ["イギリス", "ナインティ―セブンティーファイブ"],
+      "categories": [4, 6]
     },
     {
       "id": 8,
       "fesName": "COUNTDOWN JAPAN 2019-12-28",
       "artist": "Survive Said The Prophet",
       "itemDetail": "Survive Said The Prophetです。",
-      "itemImage": "/images/fes-image/fes-image08.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image08.jpg",
       "releaseDate": "2020-1-1",
       "playTime": 30,
       "twoDaysPrice": 100,
       "sevenDaysPrice": 150,
-      "keywords": [
-        "サバイブセットザプロフェット",
-        "サバプロ",
-        "鯖"
-      ],
-      "categories": [
-        1,
-        3,
-        6
-      ]
+      "keywords": ["サバイブセットザプロフェット", "サバプロ", "鯖"],
+      "categories": [1, 3, 6]
     },
     {
       "id": 9,
       "fesName": "SUMMER SONIC 2019",
       "artist": "Red Hot Chili Peppers",
       "itemDetail": "Red Hot Chili Peppersです。",
-      "itemImage": "/images/fes-image/fes-image09.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image09.jpg",
       "releaseDate": "2020-1-1",
       "playTime": 60,
       "twoDaysPrice": 300,
@@ -186,195 +136,131 @@
         "レッチリ",
         "レッドホットチリペッパーズ"
       ],
-      "categories": [
-        4,
-        6
-      ]
+      "categories": [4, 6]
     },
     {
       "id": 10,
       "fesName": "SUMMER SONIC 2019",
       "artist": "Two Door Cinema Club",
       "itemDetail": "Two Door Cinema Clubです。",
-      "itemImage": "/images/fes-image/fes-image10.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image10.jpg",
       "releaseDate": "2020-1-1",
       "playTime": 50,
       "twoDaysPrice": 250,
       "sevenDaysPrice": 350,
-      "keywords": [
-        "トゥードアシネマクラブ",
-        "イギリス"
-      ],
-      "categories": [
-        4,
-        6
-      ]
+      "keywords": ["トゥードアシネマクラブ", "イギリス"],
+      "categories": [4, 6]
     },
     {
       "id": 11,
       "fesName": "COUNTDOWN JAPNA 2019-12-29",
       "artist": "ASIAN KUNG-FU GENERATION",
       "itemDetail": "ASIAN KUNG-FU GENERATIONです。",
-      "itemImage": "/images/fes-image/fes-image11.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image11.jpg",
       "releaseDate": "2020-1-1",
       "playTime": 60,
       "twoDaysPrice": 200,
       "sevenDaysPrice": 300,
-      "keywords": [
-        "アジカン",
-        "アジアンカンフージェネレーション"
-      ],
-      "categories": [
-        1,
-        3,
-        6
-      ]
+      "keywords": ["アジカン", "アジアンカンフージェネレーション"],
+      "categories": [1, 3, 6]
     },
     {
       "id": 12,
       "fesName": "COUNTDOWN JAPNA 2019-12-30",
       "artist": "OKAMOTO`S",
       "itemDetail": "おすすめは「90`S TOKYO BOY」と「青い天国」と「真面目になったら涙が出るぜ」です。",
-      "itemImage": "/images/fes-image/fes-image12.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image12.jpg",
       "releaseDate": "2020-1-1",
       "playTime": 40,
       "twoDaysPrice": 150,
       "sevenDaysPrice": 250,
-      "keywords": [
-        "オカモトズ",
-        "岡本"
-      ],
-      "categories": [
-        1,
-        3,
-        6
-      ]
+      "keywords": ["オカモトズ", "岡本"],
+      "categories": [1, 3, 6]
     },
     {
       "id": 13,
       "fesName": "COUNTDOWN JAPNA 2019-12-30",
       "artist": "HEY-SMITH",
       "itemDetail": "ヘイスミ",
-      "itemImage": "/images/fes-image/fes-image13.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image13.jpg",
       "releaseDate": "2020-1-1",
       "playTime": 50,
       "twoDaysPrice": 200,
       "sevenDaysPrice": 300,
-      "keywords": [
-        "ヘイスミス"
-      ],
-      "categories": [
-        1,
-        3,
-        6
-      ]
+      "keywords": ["ヘイスミス"],
+      "categories": [1, 3, 6]
     },
     {
       "id": 14,
       "fesName": "ROCK IN JAPAN FES.2018 2018-8-4",
       "artist": "エレファントカシマシ",
       "itemDetail": "カシマシ",
-      "itemImage": "/images/fes-image/fes-image14.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image14.jpg",
       "releaseDate": "2020-1-1",
       "playTime": 50,
       "twoDaysPrice": 200,
       "sevenDaysPrice": 300,
-      "keywords": [
-        "エレカシ",
-        "宮本浩次",
-        "みやもとこうじ"
-      ],
-      "categories": [
-        1,
-        3,
-        6
-      ]
+      "keywords": ["エレカシ", "宮本浩次", "みやもとこうじ"],
+      "categories": [1, 3, 6]
     },
     {
       "id": 15,
       "fesName": "Live Aid 1985-7-13",
       "artist": "QUEEN",
       "itemDetail": "Bohemian Rhapsody",
-      "itemImage": "/images/fes-image/fes-image15.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image15.jpg",
       "releaseDate": "2022-11-29",
       "playTime": 21,
       "twoDaysPrice": 300,
       "sevenDaysPrice": 400,
-      "keywords": [
-        "イギリス",
-        "クイーン"
-      ],
-      "categories": [
-        4,
-        6
-      ]
+      "keywords": ["イギリス", "クイーン"],
+      "categories": [4, 6]
     },
     {
       "id": 16,
       "fesName": "ROCK IN JAPAN FES.2018 2018-8-4",
       "artist": "欅坂46",
       "itemDetail": "欅坂46",
-      "itemImage": "/images/fes-image/fes-image01.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image01.jpg",
       "releaseDate": "2022-11-29",
       "playTime": 50,
       "twoDaysPrice": 300,
       "sevenDaysPrice": 400,
-      "keywords": [
-        "欅",
-        "坂道",
-        "けやきざか"
-      ],
-      "categories": [
-        1,
-        2,
-        7
-      ]
+      "keywords": ["欅", "坂道", "けやきざか"],
+      "categories": [1, 2, 7]
     },
     {
       "id": 17,
       "fesName": "ROCK IN JAPAN FES.2018 2018-8-11",
       "artist": "きのこ帝国",
       "itemDetail": "きのこ帝国です",
-      "itemImage": "/images/fes-image/fes-image02.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image02.jpg",
       "releaseDate": "2022-11-29",
       "playTime": 30,
       "twoDaysPrice": 150,
       "sevenDaysPrice": 250,
-      "keywords": [
-        "きのこていこく"
-      ],
-      "categories": [
-        1,
-        3,
-        6,
-        7
-      ]
+      "keywords": ["きのこていこく"],
+      "categories": [1, 3, 6, 7]
     },
     {
       "id": 18,
       "fesName": "ROCK IN JAPAN FES.2018 2018-8-12",
       "artist": "ORANGE RANGE",
       "itemDetail": "ORANGE RANGE",
-      "itemImage": "/images/fes-image/fes-image03.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image03.jpg",
       "releaseDate": "2022-11-29",
       "playTime": 50,
       "twoDaysPrice": 200,
       "sevenDaysPrice": 300,
-      "keywords": [
-        "オレンジレンジ"
-      ],
-      "categories": [
-        1,
-        3,
-        6
-      ]
+      "keywords": ["オレンジレンジ"],
+      "categories": [1, 3, 6]
     },
     {
       "id": 19,
       "fesName": "SUMMER SONIC 2022 TOKYO",
       "artist": "MEGAN THEE STALLION",
       "itemDetail": "95年、アメリカ・テキサス州ヒューストン育ちのラッパー。",
-      "itemImage": "/images/fes-image/fes-image04.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image04.jpg",
       "releaseDate": "2022-11-29",
       "playTime": 60,
       "twoDaysPrice": 200,
@@ -384,31 +270,20 @@
         "ミーカンザスタリオン",
         "メーガン"
       ],
-      "categories": [
-        2,
-        5
-      ]
+      "categories": [2, 5]
     },
     {
       "id": 20,
       "fesName": "SUMMER SONIC 2022 TOKYO",
       "artist": "MÅNESKIN",
       "itemDetail": "昨年ヨーロッパ最大の音楽の祭典“ユーロヴィジョン・ソング・コンテスト2021”で優勝。",
-      "itemImage": "/images/fes-image/fes-image05.jpg",
+      "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image05.jpg",
       "releaseDate": "2022-11-29",
       "playTime": 50,
       "twoDaysPrice": 250,
       "sevenDaysPrice": 350,
-      "keywords": [
-        "イタリア",
-        "マネスキン",
-        "MANESKIN"
-      ],
-      "categories": [
-        4,
-        6,
-        7
-      ]
+      "keywords": ["イタリア", "マネスキン", "MANESKIN"],
+      "categories": [4, 6, 7]
     }
   ],
   "categories": [
@@ -479,7 +354,7 @@
           "itemId": 20,
           "itemName": "MÅNESKIN  SUMMER SONIC 2022 TOKYO",
           "price": 250,
-          "itemImage": "/images/fes-image/fes-image05.jpg",
+          "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image05.jpg",
           "rentalPeriod": 2,
           "payDate": "2022-11-06T05:28:41.416Z",
           "rentalStart": "2022-11-06T05:28:49.570Z",
@@ -490,7 +365,7 @@
           "itemId": 19,
           "itemName": "MEGAN THEE STALLION  SUMMER SONIC 2022 TOKYO",
           "price": 200,
-          "itemImage": "/images/fes-image/fes-image04.jpg",
+          "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image04.jpg",
           "rentalPeriod": 2,
           "payDate": "2022-12-06T05:28:41.416Z",
           "rentalStart": "2022-12-06T05:28:59.598Z",
@@ -501,7 +376,7 @@
           "itemId": 18,
           "itemName": "ORANGE RANGE  ROCK IN JAPAN FES.2018 2018-8-12",
           "price": 200,
-          "itemImage": "/images/fes-image/fes-image03.jpg",
+          "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image03.jpg",
           "rentalPeriod": 2,
           "payDate": "2022-12-06T05:28:41.416Z",
           "rentalStart": "2022-12-12T01:51:10.051Z",
@@ -512,7 +387,7 @@
           "itemId": 17,
           "itemName": "きのこ帝国  ROCK IN JAPAN FES.2018 2018-8-11",
           "price": 150,
-          "itemImage": "/images/fes-image/fes-image02.jpg",
+          "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image02.jpg",
           "rentalPeriod": 2,
           "payDate": "2022-12-06T05:28:41.416Z",
           "rentalStart": "2022-12-09T06:20:51.978Z",
@@ -525,7 +400,7 @@
           "itemName": "MÅNESKIN  SUMMER SONIC 2022 TOKYO",
           "rentalPeriod": 2,
           "price": 250,
-          "itemImage": "/images/fes-image/fes-image05.jpg",
+          "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image05.jpg",
           "itemId": 20
         },
         {
@@ -533,7 +408,7 @@
           "itemName": "Survive Said The Prophet  COUNTDOWN JAPAN 2019-12-28",
           "rentalPeriod": 2,
           "price": 100,
-          "itemImage": "/images/fes-image/fes-image08.jpg",
+          "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image08.jpg",
           "itemId": 8
         },
         {
@@ -541,7 +416,7 @@
           "itemName": "ポルカドットスティングレイ  JAPAN JAM2022",
           "rentalPeriod": 2,
           "price": 1000,
-          "itemImage": "/images/fes-image/fes-image04.jpg",
+          "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image04.jpg",
           "itemId": 4
         }
       ],
@@ -568,7 +443,7 @@
           "itemName": "Two Door Cinema Club  SUMMER SONIC 2019",
           "rentalPeriod": 2,
           "price": 250,
-          "itemImage": "/images/fes-image/fes-image10.jpg",
+          "itemImage": "https://aws-lambda-images-418581597558.s3.ap-northeast-1.amazonaws.com//fes-image/fes-image10.jpg",
           "itemId": 10
         }
       ],
