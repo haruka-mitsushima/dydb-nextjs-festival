@@ -189,6 +189,7 @@ export async function getServerSideProps({
 }: GetServerSidePropsContext) {
   let newItems = null;
   let searchItems = [];
+  let count = null;
   const keyword = query.q ? query.q : '';
   const genre = query.page ? query.categories : '0';
   const page = query.page ? Number(query.page) : 1;
@@ -207,19 +208,22 @@ export async function getServerSideProps({
     const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/search`;
     const response = axios.post(url, body);
     const data = await (await response).data;
-    searchItems = data;
+    searchItems = data.searchItems;
+    count = data.count;
   } else if (keyword.length !== 0 && genre === '0') {
     const body = { keyword, orderBy, order, page, take };
     const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/wordSearch`;
     const response = axios.post(url, body);
     const data = await (await response).data;
-    searchItems = data;
+    searchItems = data.searchItems;
+    count = data.count;
   } else {
     const body = { keyword, genre, orderBy, order, page, take };
     const url = `https://v8wqod3cx8.execute-api.ap-northeast-1.amazonaws.com/cloudSearch`;
     const response = axios.post(url, body);
     const data = await (await response).data;
-    searchItems = data;
+    searchItems = data.searchItems;
+    count = data.count;
   }
 
   return {
@@ -229,7 +233,7 @@ export async function getServerSideProps({
       keyword: keyword,
       genre: genre,
       page: page,
-      totalCount: searchItems.length,
+      totalCount: count,
       orderBy: orderBy,
       order: order,
     },
