@@ -27,7 +27,7 @@ export default function Player({
   return (
     <div className={styles.playerArea}>
       <ReactPlayer
-        url={'https://www.youtube-nocookie.com/watch?v=Gqoby4CeA3Y'}
+        url={'https://www.youtube-nocookie.com/watch?v=D92ZU1ioD_U'}
         className={styles.reactPlayer}
         width="70%"
         height="70%"
